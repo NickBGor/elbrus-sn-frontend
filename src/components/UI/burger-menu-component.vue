@@ -19,9 +19,9 @@
         @click="close"
       >
         <router-link
-          :to="item.linkName"
+          :to="{ name: item.linkName }"
           class="p-1 min-w-full min-h-full flex items-center"
-          active-class="rounded-md bg-thirdColor-100"
+          exact-active-class="rounded-md bg-thirdColor-100"
         >
           {{ item.title }}
         </router-link>
@@ -38,7 +38,7 @@
         </router-link>
       </div>
       <a
-        href="https://github.com/NickBGor/elbrus-space-v2.0"
+        href="https://github.com/NickBGor/elbrus-sn-frontend"
         target="_blank"
         class="px-1 flex items-center text-mainColor hover:text-secondColor dark:text-darkModeTextColor dark:hover:text-thirdColor-100"
       >

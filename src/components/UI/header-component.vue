@@ -2,7 +2,7 @@
   <header
     class="h-16 flex items-center bg-headerColor-lightMode text-mainColor dark:text-darkModeTextColor dark:bg-headerColor-darkMode"
   >
-    <router-link class="ml-2 lg:hidden" :to="{ name: 'main' }">
+    <router-link class="ml-2 lg:hidden" :to="{ name: 'news' }">
       <icon-base width="90" height="30" viewBox="0 0 137 48" fill="none">
         <main-logo />
       </icon-base>

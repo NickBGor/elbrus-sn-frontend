@@ -11,7 +11,7 @@
 </template>
 
 <script>
-import { mapActions, mapGetters } from 'vuex';
+import { mapGetters } from 'vuex';
 import ContentComponent from '@/components/content-component';
 import BurgerMenuComponent from '@/components/UI/burger-menu-component';
 import NavigationComponent from '@/components/UI/navigation-component';
@@ -23,16 +23,9 @@ export default {
     NavigationComponent,
   },
 
-  data() {
-    return {
-      isLoading: false,
-    };
-  },
-
   computed: mapGetters(['getErrors']),
+
   async created() {
-    this.isLoading = true;
-    await this.checkAuth();
     if (this.getErrors) {
       this.getErrors.map((e) =>
         this.$notification.error({
@@ -41,11 +34,7 @@ export default {
           class: 'bg-bodyColor-lightMode dark:bg-thirdColor',
         }),
       );
-    } else {
-      this.isLoading = false;
     }
   },
-
-  methods: mapActions(['checkAuth']),
 };
 </script>

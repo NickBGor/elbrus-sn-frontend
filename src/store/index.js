@@ -10,36 +10,42 @@ export default new Vuex.Store({
     menuItems: [
       {
         id: 1,
+        title: 'Новости',
+        linkName: 'news',
+        icon: 'feed',
+      },
+      {
+        id: 2,
         title: 'Профиль',
         linkName: 'profile',
         icon: 'badge',
       },
       {
-        id: 2,
+        id: 3,
         title: 'Работадатели',
         linkName: 'employers',
         icon: 'business_center',
       },
       {
-        id: 3,
+        id: 4,
         title: 'Рейтинги',
         linkName: 'ratings',
         icon: 'trending_up',
       },
       {
-        id: 4,
+        id: 5,
         title: 'Магазин',
         linkName: 'shop',
         icon: 'store',
       },
       {
-        id: 5,
+        id: 6,
         title: 'Ментор',
         linkName: 'mentor',
         icon: 'gavel',
       },
       {
-        id: 6,
+        id: 7,
         title: 'Список заказов',
         linkName: 'order-list',
         icon: 'shopping_bag',

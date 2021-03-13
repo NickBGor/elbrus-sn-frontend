@@ -1,7 +1,7 @@
 <template>
   <aside class="w-56 bg-sideBar-lightMode flex-col dark:bg-sideBar-darkMode">
     <div class="mb-20 mt-2 mx-4 flex items-center">
-      <router-link :to="{ name: 'main' }">
+      <router-link :to="{ name: 'news' }">
         <icon-base width="137" height="48" viewBox="0 0 137 48" fill="none">
           <main-logo />
         </icon-base>
@@ -16,7 +16,7 @@
         <router-link
           class="min-w-full min-h-full flex items-center px-4"
           :to="{ name: item.linkName }"
-          active-class="rounded-md bg-thirdColor-100"
+          exact-active-class="rounded-md bg-thirdColor-100"
         >
           <span class="material-icons mr-4">{{ item.icon }}</span>
           {{ item.title }}
@@ -36,7 +36,7 @@
       </router-link>
     </div>
     <a
-      href="https://github.com/NickBGor/elbrus-space-v2.0"
+      href="https://github.com/NickBGor/elbrus-sn-frontend"
       target="_blank"
       class="mb-8 mx-4 flex items-center text-mainColor hover:text-secondColor dark:text-darkModeTextColor dark:hover:text-thirdColor-100"
     >

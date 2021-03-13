@@ -11,9 +11,10 @@ import upload from 'ant-design-vue/lib/upload';
 import 'ant-design-vue/lib/upload/style/index.css';
 import progress from 'ant-design-vue/lib/progress';
 import 'ant-design-vue/lib/progress/style/index.css';
+
+import router from '@/router';
+import store from '@/store';
 import App from './App.vue';
-import router from './router';
-import store from './store';
 import './assets/styles.css';
 
 Vue.config.productionTip = false;
@@ -24,8 +25,10 @@ Vue.use(upload);
 Vue.use(progress);
 Vue.prototype.$notification = notification;
 
-new Vue({
-  router,
-  store,
-  render: (h) => h(App),
-}).$mount('#app');
+store.dispatch('checkAuth').then(() => {
+  new Vue({
+    router,
+    store,
+    render: (h) => h(App),
+  }).$mount('#app');
+});

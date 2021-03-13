@@ -75,7 +75,7 @@ export default {
           });
         });
       }
-      this.getAuth ? await this.$router.push({ name: 'profile' }) : null;
+      this.getAuth ? await this.$router.push({ name: 'news' }) : null;
       if (this.getErrors) {
         this.getErrors.map((e) => {
           this.$notification.error({
