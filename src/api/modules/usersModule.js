@@ -1,0 +1,19 @@
+export function usersModule(instance) {
+  return {
+    login(payload) {
+      return instance.post('/login', payload);
+    },
+    registration(payload) {
+      return instance.post('/registration', payload);
+    },
+    checkAuth(payload) {
+      return instance.post('/check', payload);
+    },
+    getAllUsers() {
+      return instance.get('/students/AllUsers');
+    },
+    editProfile(payload) {
+      return instance.post('/profile/edit', payload);
+    },
+  };
+}

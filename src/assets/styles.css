@@ -1,0 +1,23 @@
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+@import url('https://fonts.googleapis.com/css2?family=Fira+Sans:wght@300;400;700&display=swap');
+@import url('https://fonts.googleapis.com/icon?family=Material+Icons');
+
+@layer components {
+  .btn-default {
+    @apply w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm text-mainColor bg-thirdColor-100 hover:bg-thirdColor focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-thirdColor-100 dark:text-darkModeTextColor
+  }
+
+  .btn-disabled {
+    @apply cursor-not-allowed opacity-50
+  }
+
+  .input-default {
+    @apply w-full text-mainColor rounded-lg shadow-sm bg-sideBar-lightMode border-mainColor focus:ring-mainColor dark:text-darkModeTextColor dark:bg-sideBar-darkMode dark:border-thirdColor-100 dark:focus:ring-thirdColor
+  }
+
+  .card-default {
+    @apply m-5 p-5 rounded-md shadow-md space-y-2 lg:space-y-4 bg-sideBar-lightMode transform transition-transform lg:hover:scale-105 cursor-default flex-auto max-w-full dark:bg-sideBar-darkMode
+  }
+}
