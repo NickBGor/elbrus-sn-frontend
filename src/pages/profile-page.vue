@@ -52,7 +52,7 @@
               <div
                 v-for="(c, i) in getUser.contacts"
                 :key="i"
-                class="text-mainColor text-sm mx-4 my-1 dark:text-darkModeTextColor"
+                class="text-mainColor text-sm my-1 dark:text-darkModeTextColor"
               >
                 {{ c.type }}: {{ c.contact }}
               </div>

@@ -1,10 +1,10 @@
 <template>
   <div class="flex flex-col lg:flex-row w-full h-full">
-    <div class="w-full lg:w-4/5 order-2 lg:order-1 space-y-10">
+    <div class="w-full lg:w-4/5 order-2 lg:order-1 space-y-10 ">
       <div
         v-for="item in news"
         :key="item.id"
-        class="card-default h-60 mx-10 dark:shadow-thirdColorShadow overflow-hidden"
+        class="card-default h-60 mx-10 dark:shadow-thirdColorShadow overflow-auto"
       >
         <h2 class="text-2xl">{{ item.title }}</h2>
         <p class="">
@@ -15,10 +15,10 @@
     <div
       class="w-full mx-5 mt-5 space-y-0 order-1 flex flex-wrap flex-row lg:flex-col lg:w-1/5 lg:order-2 lg:space-y-2"
     >
-      <div class="mx-5">Общие новости</div>
-      <div class="mx-5">Питерский кампус</div>
-      <div class="mx-5">Московский кампус</div>
-      <div class="mx-5">Онлайн буткемп</div>
+      <div class="mx-5 cursor-pointer hover:text-mainColor dark:hover:text-thirdColor-100">Общие новости</div>
+      <div class="mx-5 cursor-pointer hover:text-mainColor dark:hover:text-thirdColor-100">Питерский кампус</div>
+      <div class="mx-5 cursor-pointer hover:text-mainColor dark:hover:text-thirdColor-100">Московский кампус</div>
+      <div class="mx-5 cursor-pointer hover:text-mainColor dark:hover:text-thirdColor-100">Онлайн буткемп</div>
     </div>
   </div>
 </template>
