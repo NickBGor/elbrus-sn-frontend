@@ -11,6 +11,7 @@ import MentorPage from '@/pages/mentor-page';
 import OrderListPage from '@/pages/order-list-page';
 import NewsPage from '@/pages/news-page';
 import NotFoundPage from '@/pages/not-found-page';
+import EmployerPage from '@/pages/employer-page';
 
 Vue.use(VueRouter);
 
@@ -32,6 +33,12 @@ const routes = [
     name: 'employers',
     meta: { auth: true },
     component: EmployersPage,
+  },
+  {
+    path: '/employers/:id',
+    name: 'employer',
+    meta: { auth: true },
+    component: EmployerPage,
   },
   {
     path: '/ratings',
