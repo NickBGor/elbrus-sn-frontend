@@ -20,6 +20,7 @@ module.exports = {
       },
       boxShadow: {
         mainColorShadow: '0 10px 60px 0 #4520ab',
+        thirdColorShadow: '0 0 20px 0 #66eefb',
       },
     },
   },

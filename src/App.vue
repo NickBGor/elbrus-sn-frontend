@@ -4,8 +4,8 @@
   >
     <template>
       <burger-menu-component class="lg:hidden absolute top-5 right-4" />
-      <navigation-component class="hidden lg:flex" />
-      <content-component />
+      <navigation-component class="hidden lg:flex fixed h-full" />
+      <content-component class="ml-0 lg:ml-56" />
     </template>
   </div>
 </template>
