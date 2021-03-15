@@ -1,7 +1,7 @@
 <template>
   <div class="flex flex-col">
     <div class="flex flex-col lg:flex-row">
-      <div class="mx-auto my-5 lg:ml-20 lg:mr-10 max-w-xs">
+      <div class="mx-auto my-5 lg:ml-20 lg:mr-10 w-80 h-96">
         <img
           :src="getUser.photo"
           alt="user_photo"
@@ -256,7 +256,7 @@ export default {
       isLoading: false,
       id: 0,
       name: '',
-      imgUrl: '',
+      photo: '',
       skills: [],
       contacts: [],
     };
@@ -283,7 +283,7 @@ export default {
         userId: this.id,
         skills: this.skills,
         imgUrl:
-          this.photo === this.getUser.photo ? this.getUser.photo : this.imgUrl,
+          this.photo === this.getUser.photo ? this.getUser.photo : this.photo,
         contacts: this.contacts,
       });
       if (this.getErrors) {
@@ -338,7 +338,7 @@ export default {
           description: `Загурзка файла прошла успешно`,
           class: 'bg-bodyColor-lightMode dark:bg-thirdColor',
         });
-        this.imgUrl = info.file.response.secure_url;
+        this.photo = info.file.response.secure_url;
       } else if (info.file.status === 'error') {
         this.$notification.error({
           message: 'Успех',
