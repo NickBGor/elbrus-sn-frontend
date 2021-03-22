@@ -12,6 +12,7 @@ import OrderListPage from '@/pages/order-list-page';
 import NewsPage from '@/pages/news-page';
 import NotFoundPage from '@/pages/not-found-page';
 import EmployerPage from '@/pages/employer-page';
+import ConfirmPage from '@/pages/confirmation-mail-page';
 
 Vue.use(VueRouter);
 
@@ -75,6 +76,12 @@ const routes = [
     name: 'login',
     meta: { auth: false },
     component: LoginPage,
+  },
+  {
+    path: '/confirmation',
+    name: 'confirmation',
+    component: ConfirmPage,
+    meta: { auth: false },
   },
   {
     path: '*',
