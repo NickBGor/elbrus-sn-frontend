@@ -23,18 +23,33 @@ export default {
     NavigationComponent,
   },
 
-  computed: mapGetters(['getErrors']),
+  computed: mapGetters(['getErrors', 'getSuccessMessage']),
 
-  async created() {
-    if (this.getErrors) {
-      this.getErrors.map((e) =>
-        this.$notification.error({
-          message: 'Ошибка',
-          description: e.msg,
-          class: 'bg-bodyColor-lightMode dark:bg-thirdColor',
-        }),
-      );
-    }
+  watch: {
+    getErrors(errors) {
+      if (errors.length) {
+        return errors.map((e) =>
+          this.$notification.error({
+            message: 'Ошибка',
+            description: e.msg,
+            class: 'bg-bodyColor-lightMode dark:bg-thirdColor',
+          }),
+        );
+      }
+      return null;
+    },
+    getSuccessMessage(message) {
+      if (message.length) {
+        return message.map((e) => {
+          this.$notification.success({
+            message: 'Успех',
+            description: e.msg,
+            class: 'bg-bodyColor-lightMode dark:bg-thirdColor',
+          });
+        });
+      }
+      return null;
+    },
   },
 };
 </script>
