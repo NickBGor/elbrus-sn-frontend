@@ -15,21 +15,6 @@
     >
       <h1>Название работодателя</h1>
     </div>
-    <div
-      class="border-4 rounded-md border-mainColor-100 dark:border-thirdColor-100 mb-5 lg:m-5 w-full xl:w-2/5 h-60"
-    >
-      <h1>Название работодателя</h1>
-    </div>
-    <div
-      class="border-4 rounded-md border-mainColor-100 dark:border-thirdColor-100 mb-5 lg:m-5 w-full xl:w-2/5 h-60"
-    >
-      <h1>Название работодателя</h1>
-    </div>
-    <div
-      class="border-4 rounded-md border-mainColor-100 dark:border-thirdColor-100 mb-5 lg:m-5 w-full xl:w-2/5 h-60"
-    >
-      <h1>Название работодателя</h1>
-    </div>
   </div>
 </template>
 

@@ -262,7 +262,7 @@ export default {
     };
   },
 
-  computed: mapGetters(['getUser', 'getErrors', 'getSuccessMessage']),
+  computed: mapGetters(['getUser']),
 
   methods: {
     ...mapActions(['editUserProfile']),

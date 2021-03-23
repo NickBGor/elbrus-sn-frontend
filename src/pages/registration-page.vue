@@ -71,7 +71,7 @@ export default {
     };
   },
 
-  computed: mapGetters(['getAuth', 'getErrors', 'getSuccessMessage']),
+  computed: mapGetters(['getAuth']),
 
   methods: {
     ...mapActions(['registration']),
