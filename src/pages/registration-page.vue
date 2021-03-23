@@ -71,7 +71,7 @@ export default {
     };
   },
 
-  computed: mapGetters(['getAuth', 'getErrors', 'getSuccessMessage']),
+  computed: mapGetters(['getAuth']),
 
   methods: {
     ...mapActions(['registration']),
@@ -84,25 +84,7 @@ export default {
         password: this.password,
       });
       this.isLoading = false;
-      if (this.getSuccessMessage) {
-        this.getSuccessMessage.map((e) => {
-          this.$notification.success({
-            message: 'Успех',
-            description: e.msg,
-            class: 'bg-bodyColor-lightMode dark:bg-thirdColor',
-          });
-        });
-      }
       this.getAuth ? await this.$router.push({ name: 'news' }) : null;
-      if (this.getErrors) {
-        this.getErrors.map((e) => {
-          this.$notification.error({
-            message: 'Ошибка',
-            description: e.msg,
-            class: 'bg-bodyColor-lightMode dark:bg-thirdColor',
-          });
-        });
-      }
     },
   },
 };
