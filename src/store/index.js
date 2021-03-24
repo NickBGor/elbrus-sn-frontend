@@ -174,5 +174,9 @@ export default new Vuex.Store({
     getSuccessMessage(state) {
       if (state.successMessage) return state.successMessage;
     },
+
+    getEmailStatus(state) {
+      return state.user.confirmedEmail;
+    },
   },
 });

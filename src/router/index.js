@@ -81,7 +81,7 @@ const routes = [
     path: '/confirmation',
     name: 'confirmation',
     component: ConfirmPage,
-    meta: { auth: false },
+    meta: { auth: true },
   },
   {
     path: '*',
@@ -100,7 +100,12 @@ const router = new VueRouter({
 router.beforeEach((to, from, next) => {
   const requireAuthRoute = to.matched.some((e) => e.meta.auth);
   const isAuth = store.getters.getAuth;
+  const isConfirmedEmail = store.getters.getEmailStatus;
 
+  if (requireAuthRoute && isAuth && !isConfirmedEmail) {
+    console.log('isAuth && !isConfirmedEmail',isAuth && !isConfirmedEmail);
+    // next( { name: 'confirmation'})
+  }
   if (requireAuthRoute && !isAuth) {
     next({ name: 'login' });
   } else {
