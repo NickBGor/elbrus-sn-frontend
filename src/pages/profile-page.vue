@@ -262,7 +262,7 @@ export default {
     };
   },
 
-  computed: mapGetters(['getUser', 'getErrors', 'getSuccessMessage']),
+  computed: mapGetters(['getUser']),
 
   methods: {
     ...mapActions(['editUserProfile']),
@@ -286,26 +286,7 @@ export default {
           this.photo === this.getUser.photo ? this.getUser.photo : this.photo,
         contacts: this.contacts,
       });
-      if (this.getErrors) {
-        this.getErrors.map((e) => {
-          this.$notification.error({
-            message: 'Ошибка',
-            description: e.msg,
-            class: 'bg-bodyColor-lightMode dark:bg-thirdColor',
-          });
-        });
-      } else if (this.getSuccessMessage) {
-        this.getSuccessMessage.map((e) => {
-          this.$notification.success({
-            message: 'Успех',
-            description: e.msg,
-            class: 'bg-bodyColor-lightMode dark:bg-thirdColor',
-          });
-        });
-        this.isEditable = false;
-      } else {
-        this.isEditable = false;
-      }
+      this.isEditable = false;
       this.isLoading = false;
     },
 

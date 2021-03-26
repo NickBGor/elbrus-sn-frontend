@@ -68,6 +68,7 @@ export default new Vuex.Store({
     user: {},
     errors: null,
     successMessage: null,
+    employers: [],
   },
 
   mutations: {
@@ -85,6 +86,10 @@ export default new Vuex.Store({
 
     setSuccessMessage(state, success) {
       state.successMessage = success;
+    },
+
+    setEmployers(state, employers) {
+      state.employers = employers;
     },
   },
 
@@ -151,6 +156,16 @@ export default new Vuex.Store({
         commit('setErrors', error.response.data.errors);
       }
     },
+
+    async getAllEmployers({ commit }) {
+      commit('setErrors', null);
+      try {
+        const { data } = await api.employers.getEmployers();
+        commit('setEmployers', data.employers);
+      } catch (error) {
+        commit('setErrors', error.response.data.errors);
+      }
+    },
   },
 
   getters: {
@@ -174,9 +189,11 @@ export default new Vuex.Store({
     getSuccessMessage(state) {
       if (state.successMessage) return state.successMessage;
     },
-
     getEmailStatus(state) {
       return state.user.confirmedEmail;
+    },
+    getEmployers(state) {
+      return state.employers;
     },
   },
 });
