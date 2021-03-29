@@ -12,7 +12,8 @@ import OrderListPage from '@/pages/order-list-page';
 import NewsPage from '@/pages/news-page';
 import NotFoundPage from '@/pages/not-found-page';
 import EmployerPage from '@/pages/employer-page';
-
+import PasswordRecovery from '@/pages/password-recovery-page';
+import SendMail from ''
 Vue.use(VueRouter);
 
 const routes = [
@@ -75,6 +76,18 @@ const routes = [
     name: 'login',
     meta: { auth: false },
     component: LoginPage,
+  },
+  {
+    path: '/recovery-mail',
+    name: 'recovery-mail',
+    meta: { auth: false },
+    component: SendMail,
+  },
+  {
+    path: '/recovery',
+    name: 'recovery',
+    meta: { auth: false },
+    component: PasswordRecovery,
   },
   {
     path: '*',
