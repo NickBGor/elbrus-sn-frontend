@@ -1,9 +1,3 @@
-<style>
-.confirm {
-  display: inline-block;
-}
-</style>
-
 <template>
   <div class="card-default confirm">
     <p>{{ user.name }} , подтверди пожалуйста почту! 🚀</p>
@@ -17,6 +11,7 @@ import store from '@/store';
 
 export default {
   name: 'confirmation-page',
+
   data() {
     return {
       user: store.getters.getUser,
@@ -24,3 +19,9 @@ export default {
   },
 };
 </script>
+
+<style>
+.confirm {
+  display: inline-block;
+}
+</style>
