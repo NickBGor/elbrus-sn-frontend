@@ -12,6 +12,7 @@ import OrderListPage from '@/pages/order-list-page';
 import NewsPage from '@/pages/news-page';
 import NotFoundPage from '@/pages/not-found-page';
 import EmployerPage from '@/pages/employer-page';
+import ConfirmPage from '@/pages/confirmation-mail-page';
 
 Vue.use(VueRouter);
 
@@ -20,48 +21,48 @@ const routes = [
     path: '/',
     name: 'news',
     component: NewsPage,
-    meta: { auth: true },
+    meta: { auth: true, isConfirmed: true },
   },
   {
     path: '/profile',
     name: 'profile',
-    meta: { auth: true },
+    meta: { auth: true, isConfirmed: true },
     component: ProfilePage,
   },
   {
     path: '/employers',
     name: 'employers',
-    meta: { auth: true },
+    meta: { auth: true, isConfirmed: true },
     component: EmployersPage,
   },
   {
     path: '/employers/:id',
     name: 'employer',
-    meta: { auth: true },
+    meta: { auth: true, isConfirmed: true },
     component: EmployerPage,
   },
   {
     path: '/ratings',
     name: 'ratings',
-    meta: { auth: true },
+    meta: { auth: true, isConfirmed: true },
     component: RatingPage,
   },
   {
     path: '/shop',
     name: 'shop',
-    meta: { auth: true },
+    meta: { auth: true, isConfirmed: true },
     component: ShopPage,
   },
   {
     path: '/mentor',
     name: 'mentor',
-    meta: { auth: true },
+    meta: { auth: true, isConfirmed: true },
     component: MentorPage,
   },
   {
     path: '/order-list',
     name: 'order-list',
-    meta: { auth: true },
+    meta: { auth: true, isConfirmed: true },
     component: OrderListPage,
   },
   {
@@ -75,6 +76,12 @@ const routes = [
     name: 'login',
     meta: { auth: false },
     component: LoginPage,
+  },
+  {
+    path: '/confirmation',
+    name: 'confirmation',
+    component: ConfirmPage,
+    meta: { auth: true, isConfirmed: false },
   },
   {
     path: '*',
@@ -92,10 +99,14 @@ const router = new VueRouter({
 
 router.beforeEach((to, from, next) => {
   const requireAuthRoute = to.matched.some((e) => e.meta.auth);
+  const requireEmailRoute = to.matched.some((e) => e.meta.isConfirmed);
   const isAuth = store.getters.getAuth;
+  const isConfirmedEmail = store.getters.getEmailStatus;
 
   if (requireAuthRoute && !isAuth) {
     next({ name: 'login' });
+  } else if (requireEmailRoute && !isConfirmedEmail) {
+    next({ name: 'confirmation' });
   } else {
     next();
   }
