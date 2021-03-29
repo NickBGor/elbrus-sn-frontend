@@ -190,6 +190,10 @@ export default new Vuex.Store({
       if (state.successMessage) return state.successMessage;
     },
 
+    getEmailStatus(state) {
+      return state.user.confirmedEmail;
+    },
+
     getEmployers(state) {
       return state.employers;
     },
