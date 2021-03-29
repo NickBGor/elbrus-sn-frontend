@@ -43,7 +43,7 @@
 
 <script>
 import LoginFormComponent from '@/components/UI/login-form-component';
-import { mapGetters } from "vuex";
+import { mapGetters } from 'vuex';
 
 export default {
   name: 'password-recovery-page',

@@ -13,7 +13,7 @@ import NewsPage from '@/pages/news-page';
 import NotFoundPage from '@/pages/not-found-page';
 import EmployerPage from '@/pages/employer-page';
 import PasswordRecovery from '@/pages/password-recovery-page';
-import SendMail from ''
+import SendMail from '';
 Vue.use(VueRouter);
 
 const routes = [

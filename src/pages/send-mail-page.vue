@@ -7,7 +7,7 @@
       >
         <div class="mt-2">
           <label for="email" class="text-mainColor dark:text-darkModeTextColor"
-          >Email</label
+            >Email</label
           >
           <input
             id="email"
@@ -29,7 +29,7 @@
 
 <script>
 import LoginFormComponent from '@/components/UI/login-form-component';
-import { mapGetters } from "vuex";
+import { mapGetters } from 'vuex';
 
 export default {
   name: 'password-recovery-page',
