@@ -322,7 +322,7 @@ export default {
         this.photo = info.file.response.secure_url;
       } else if (info.file.status === 'error') {
         this.$notification.error({
-          message: 'Успех',
+          message: 'Ошибка',
           description: `Что то пошло не так при загрузке файла. Попробуйте еще раз.`,
           class: 'bg-bodyColor-lightMode dark:bg-thirdColor',
         });
