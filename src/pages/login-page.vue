@@ -35,6 +35,11 @@
             Войти
           </button>
         </div>
+        <router-link :to="{ name: 'recovery-mail' }">
+          <span title="восстановление пароля">
+            <Mail />
+          </span>
+        </router-link>
       </form>
     </template>
   </login-form-component>
@@ -43,11 +48,12 @@
 <script>
 import { mapActions, mapGetters } from 'vuex';
 import LoginFormComponent from '@/components/UI/login-form-component';
+import Mail from '@/components/icons/mail';
 
 export default {
   name: 'login-page',
 
-  components: { LoginFormComponent },
+  components: { LoginFormComponent, Mail },
 
   data() {
     return {
