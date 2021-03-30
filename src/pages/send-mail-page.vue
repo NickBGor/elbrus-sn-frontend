@@ -41,7 +41,6 @@ export default {
   data() {
     return {
       email: null,
-      password: null,
       isLoading: false,
     };
   },
@@ -51,7 +50,16 @@ export default {
   methods: {
     async mailSendHandler() {
       this.isLoading = true;
-      console.log('555');
+      try {
+        const response = await fetch('http://localhost:3000/recovery', {
+          method: 'POST',
+          body: JSON.stringify({ email: this.email }),
+        });
+        const result = await response.json();
+        console.log(result);
+      }catch ( err ){
+        console.log(err);
+      }
       this.isLoading = false;
     },
   },
