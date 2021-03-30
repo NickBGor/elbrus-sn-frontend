@@ -1,7 +1,7 @@
 <template>
   <div class="flex flex-col">
     <div class="flex flex-col lg:flex-row">
-      <div class="mx-auto my-5 lg:ml-20 lg:mr-10 w-80 h-96">
+      <div class="mx-auto my-5 lg:ml-20 lg:mr-10 max-w-96">
         <img
           :src="getUser.photo"
           alt="user_photo"
@@ -322,7 +322,7 @@ export default {
         this.photo = info.file.response.secure_url;
       } else if (info.file.status === 'error') {
         this.$notification.error({
-          message: 'Успех',
+          message: 'Ошибка',
           description: `Что то пошло не так при загрузке файла. Попробуйте еще раз.`,
           class: 'bg-bodyColor-lightMode dark:bg-thirdColor',
         });

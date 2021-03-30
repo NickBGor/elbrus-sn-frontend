@@ -6,7 +6,7 @@
     <p class="text-2xl">Page not found</p>
     <router-link
       class="mt-5 text-secondColor dark:text-darkModeTextColor hover:text-mainColor dark:hover:text-thirdColor-100"
-      :to="{ name: 'news' }"
+      :to="{ name: 'main' }"
     >
       Вернуться на главную
     </router-link>

@@ -3,7 +3,7 @@
     class="font-fira flex min-h-screen min-w-screen bg-bodyColor-lightMode dark:bg-bodyColor-darkMode dark:text-darkModeTextColor"
   >
     <template>
-      <burger-menu-component class="lg:hidden absolute top-5 right-4" />
+      <burger-menu-component class="lg:hidden absolute z-50 top-5 right-4" />
       <navigation-component class="hidden lg:flex fixed h-full" />
       <content-component class="ml-0 lg:ml-56" />
     </template>
