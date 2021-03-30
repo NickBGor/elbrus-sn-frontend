@@ -13,14 +13,21 @@ import NewsPage from '@/pages/news-page';
 import NotFoundPage from '@/pages/not-found-page';
 import EmployerPage from '@/pages/employer-page';
 import ConfirmPage from '@/pages/confirmation-mail-page';
+import InDevelopingPage from '@/pages/in-developing-page';
 
 Vue.use(VueRouter);
 
 const routes = [
   {
     path: '/',
+    name: 'main',
+    redirect: 'profile',
+  },
+  {
+    path: '/news',
     name: 'news',
     component: NewsPage,
+    redirect: 'dev',
     meta: { auth: true, isConfirmed: true },
   },
   {
@@ -32,36 +39,42 @@ const routes = [
   {
     path: '/employers',
     name: 'employers',
+    redirect: 'dev',
     meta: { auth: true, isConfirmed: true },
     component: EmployersPage,
   },
   {
     path: '/employers/:id',
     name: 'employer',
+    redirect: 'dev',
     meta: { auth: true, isConfirmed: true },
     component: EmployerPage,
   },
   {
     path: '/ratings',
     name: 'ratings',
+    redirect: 'dev',
     meta: { auth: true, isConfirmed: true },
     component: RatingPage,
   },
   {
     path: '/shop',
     name: 'shop',
+    redirect: 'dev',
     meta: { auth: true, isConfirmed: true },
     component: ShopPage,
   },
   {
     path: '/mentor',
     name: 'mentor',
+    redirect: 'dev',
     meta: { auth: true, isConfirmed: true },
     component: MentorPage,
   },
   {
     path: '/order-list',
     name: 'order-list',
+    redirect: 'dev',
     meta: { auth: true, isConfirmed: true },
     component: OrderListPage,
   },
@@ -82,6 +95,11 @@ const routes = [
     name: 'confirmation',
     component: ConfirmPage,
     meta: { auth: true, isConfirmed: false },
+  },
+  {
+    path: '/dev',
+    name: 'dev',
+    component: InDevelopingPage,
   },
   {
     path: '*',

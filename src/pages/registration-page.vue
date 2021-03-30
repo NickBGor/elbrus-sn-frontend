@@ -84,7 +84,7 @@ export default {
         password: this.password,
       });
       this.isLoading = false;
-      this.getAuth ? await this.$router.push({ name: 'news' }) : null;
+      this.getAuth ? await this.$router.push({ name: 'main' }) : null;
     },
   },
 };
