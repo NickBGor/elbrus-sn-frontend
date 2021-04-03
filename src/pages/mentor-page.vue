@@ -4,6 +4,6 @@
 
 <script>
 export default {
-  name: 'mentor-page',
+  name: 'MentorPage',
 };
 </script>

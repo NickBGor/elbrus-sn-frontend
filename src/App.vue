@@ -2,11 +2,9 @@
   <div
     class="font-fira flex min-h-screen min-w-screen bg-bodyColor-lightMode dark:bg-bodyColor-darkMode dark:text-darkModeTextColor"
   >
-    <template>
-      <burger-menu-component class="lg:hidden absolute z-50 top-5 right-4" />
-      <navigation-component class="hidden lg:flex fixed h-full" />
-      <content-component class="ml-0 lg:ml-56" />
-    </template>
+    <burger-menu-component class="lg:hidden absolute z-50 top-5 right-4" />
+    <navigation-component class="hidden lg:flex fixed h-full" />
+    <content-component class="ml-0 lg:ml-56" />
   </div>
 </template>
 
@@ -27,7 +25,7 @@ export default {
 
   watch: {
     getErrors(errors) {
-      if (errors.length) {
+      if (errors && errors.length) {
         return errors.map((e) =>
           this.$notification.error({
             message: 'Ошибка',
@@ -38,8 +36,9 @@ export default {
       }
       return null;
     },
+
     getSuccessMessage(message) {
-      if (message.length) {
+      if (message && message.length) {
         return message.map((e) => {
           this.$notification.success({
             message: 'Успех',
