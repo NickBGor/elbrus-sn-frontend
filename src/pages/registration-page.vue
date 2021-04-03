@@ -1,10 +1,7 @@
 <template>
-  <login-form-component :is-loading="isLoading">
+  <login-form-component :isLoading="isLoading">
     <template #form>
-      <form
-        :class="{ 'opacity-50': isLoading }"
-        @submit.prevent="registrationHandler"
-      >
+      <form :class="{ 'opacity-50': isLoading }" @submit.prevent="registrationHandler">
         <div>
           <label for="name" class="text-mainColor dark:text-darkModeTextColor">
             Имя
@@ -18,9 +15,7 @@
           />
         </div>
         <div class="mt-2">
-          <label for="email" class="text-mainColor dark:text-darkModeTextColor"
-            >Email</label
-          >
+          <label for="email" class="text-mainColor dark:text-darkModeTextColor">Email</label>
           <input
             id="email"
             v-model="email"
@@ -30,11 +25,7 @@
           />
         </div>
         <div class="mt-2">
-          <label
-            for="password"
-            class="text-mainColor dark:text-darkModeTextColor"
-            >Пароль</label
-          >
+          <label for="password" class="text-mainColor dark:text-darkModeTextColor">Пароль</label>
           <input
             id="password"
             v-model="password"
@@ -58,7 +49,7 @@ import { mapActions, mapGetters } from 'vuex';
 import LoginFormComponent from '@/components/UI/login-form-component';
 
 export default {
-  name: 'registration-page',
+  name: 'RegistrationPage',
 
   components: { LoginFormComponent },
 

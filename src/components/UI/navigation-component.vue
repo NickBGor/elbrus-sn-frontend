@@ -16,7 +16,7 @@
         <router-link
           class="min-w-full min-h-full flex items-center px-4"
           :to="{ name: item.linkName }"
-          exact-active-class="rounded-md bg-thirdColor-100"
+          exactActiveClass="rounded-md bg-thirdColor-100"
         >
           <span class="material-icons mr-4">{{ item.icon }}</span>
           {{ item.title }}
@@ -24,13 +24,10 @@
       </div>
     </nav>
     <div
-      @click="logoutHandler"
       class="my-4 rounded-md text-mainColor hover:text-secondColor h-10 inline-block dark:text-darkModeTextColor dark:hover:text-thirdColor-100"
+      @click="logoutHandler"
     >
-      <router-link
-        class="flex items-center px-4 flex items-center"
-        :to="{ name: 'login' }"
-      >
+      <router-link class="flex items-center px-4 flex items-center" :to="{ name: 'login' }">
         <span class="material-icons mr-2">logout</span>
         Выход
       </router-link>
@@ -40,7 +37,7 @@
       target="_blank"
       class="mb-8 mx-4 flex items-center text-mainColor hover:text-secondColor dark:text-darkModeTextColor dark:hover:text-thirdColor-100"
     >
-      <a-icon type="github" :style="{ fontSize: '1.5rem' }" />
+      <a-icon type="github" class="github-icon" />
       <span class="mx-2">Github проекта</span>
     </a>
   </aside>
@@ -52,7 +49,7 @@ import IconBase from '@/components/icon-base';
 import MainLogo from '@/components/icons/main-logo';
 
 export default {
-  name: 'navigation-component',
+  name: 'NavigationComponent',
 
   components: { MainLogo, IconBase },
 
@@ -67,3 +64,9 @@ export default {
   },
 };
 </script>
+
+<style lang="scss">
+.github-icon {
+  font-size: 1.5rem;
+}
+</style>

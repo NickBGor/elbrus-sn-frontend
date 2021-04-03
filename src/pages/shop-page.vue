@@ -4,6 +4,6 @@
 
 <script>
 export default {
-  name: 'shop-page',
+  name: 'ShopPage',
 };
 </script>

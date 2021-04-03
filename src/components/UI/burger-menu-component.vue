@@ -2,9 +2,9 @@
   <div>
     <span
       class="material-icons text-mainColor dark:text-darkModeTextColor cursor-pointer"
-      @click="open"
       onselectstart="return false"
       onmousedown="return false"
+      @click="open"
     >
       {{ getIcon }}
     </span>
@@ -21,7 +21,7 @@
         <router-link
           :to="{ name: item.linkName }"
           class="p-1 min-w-full min-h-full flex items-center"
-          exact-active-class="rounded-md bg-thirdColor-100"
+          exactActiveClass="rounded-md bg-thirdColor-100"
         >
           {{ item.title }}
         </router-link>
@@ -42,7 +42,7 @@
         target="_blank"
         class="px-1 flex items-center text-mainColor hover:text-secondColor dark:text-darkModeTextColor dark:hover:text-thirdColor-100"
       >
-        <a-icon type="github" :style="{ fontSize: '1.5rem' }" />
+        <a-icon type="github" class="github-icon" />
       </a>
     </div>
   </div>
@@ -52,7 +52,7 @@
 import { mapActions, mapGetters } from 'vuex';
 
 export default {
-  name: 'burger-menu-component',
+  name: 'BurgerMenuComponent',
 
   data() {
     return {
@@ -86,3 +86,9 @@ export default {
   },
 };
 </script>
+
+<style lang="scss">
+.github-icon {
+  font-size: 1.5rem;
+}
+</style>

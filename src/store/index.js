@@ -184,10 +184,12 @@ export default new Vuex.Store({
 
     getErrors(state) {
       if (state.errors) return state.errors;
+      return null;
     },
 
     getSuccessMessage(state) {
       if (state.successMessage) return state.successMessage;
+      return null;
     },
 
     getEmailStatus(state) {

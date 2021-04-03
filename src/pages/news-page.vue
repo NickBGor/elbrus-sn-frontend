@@ -15,24 +15,16 @@
     <div
       class="w-full mx-5 mt-5 space-y-0 order-1 flex flex-wrap flex-row lg:flex-col lg:w-1/5 lg:order-2 lg:space-y-2"
     >
-      <div
-        class="mx-5 cursor-pointer hover:text-mainColor dark:hover:text-thirdColor-100"
-      >
+      <div class="mx-5 cursor-pointer hover:text-mainColor dark:hover:text-thirdColor-100">
         Общие новости
       </div>
-      <div
-        class="mx-5 cursor-pointer hover:text-mainColor dark:hover:text-thirdColor-100"
-      >
+      <div class="mx-5 cursor-pointer hover:text-mainColor dark:hover:text-thirdColor-100">
         Питерский кампус
       </div>
-      <div
-        class="mx-5 cursor-pointer hover:text-mainColor dark:hover:text-thirdColor-100"
-      >
+      <div class="mx-5 cursor-pointer hover:text-mainColor dark:hover:text-thirdColor-100">
         Московский кампус
       </div>
-      <div
-        class="mx-5 cursor-pointer hover:text-mainColor dark:hover:text-thirdColor-100"
-      >
+      <div class="mx-5 cursor-pointer hover:text-mainColor dark:hover:text-thirdColor-100">
         Онлайн буткемп
       </div>
     </div>
@@ -41,7 +33,7 @@
 
 <script>
 export default {
-  name: 'news-page',
+  name: 'NewsPage',
 
   data() {
     return {
