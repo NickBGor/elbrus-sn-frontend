@@ -10,7 +10,7 @@
 import store from '@/store';
 
 export default {
-  name: 'confirmation-page',
+  name: 'ConfirmationPage',
 
   data() {
     return {

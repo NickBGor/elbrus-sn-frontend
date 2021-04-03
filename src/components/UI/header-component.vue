@@ -39,7 +39,7 @@ import IconBase from '@/components/icon-base';
 import MainLogo from '@/components/icons/main-logo';
 
 export default {
-  name: 'header-component',
+  name: 'HeaderComponent',
 
   components: { MainLogo, IconBase },
 
@@ -47,24 +47,6 @@ export default {
     return {
       darkMode: null,
     };
-  },
-
-  created: function() {
-    if (!localStorage.getItem('theme')) {
-      if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
-        localStorage.setItem('theme', 'dark');
-      } else {
-        localStorage.setItem('theme', 'light');
-      }
-    }
-    const mode = localStorage.getItem('theme');
-    if (mode !== 'light') {
-      document.documentElement.classList.add('dark');
-      this.darkMode = true;
-    } else {
-      document.documentElement.classList.remove('dark');
-      this.darkMode = false;
-    }
   },
 
   computed: {
@@ -81,6 +63,24 @@ export default {
     placeholderLabel() {
       return this.getAuth ? 'Введите имя для поиска' : '';
     },
+  },
+
+  created() {
+    if (!localStorage.getItem('theme')) {
+      if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        localStorage.setItem('theme', 'dark');
+      } else {
+        localStorage.setItem('theme', 'light');
+      }
+    }
+    const mode = localStorage.getItem('theme');
+    if (mode !== 'light') {
+      document.documentElement.classList.add('dark');
+      this.darkMode = true;
+    } else {
+      document.documentElement.classList.remove('dark');
+      this.darkMode = false;
+    }
   },
 
   methods: {

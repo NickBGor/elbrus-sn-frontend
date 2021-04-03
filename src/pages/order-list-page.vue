@@ -4,6 +4,6 @@
 
 <script>
 export default {
-  name: 'order-list-page',
+  name: 'OrderListPage',
 };
 </script>

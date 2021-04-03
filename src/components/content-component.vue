@@ -9,7 +9,7 @@
 import HeaderComponent from '@/components/UI/header-component';
 
 export default {
-  name: 'content-component',
+  name: 'ContentComponent',
 
   components: { HeaderComponent },
 };

@@ -4,6 +4,6 @@
 
 <script>
 export default {
-  name: 'employer-page',
+  name: 'EmployerPage',
 };
 </script>

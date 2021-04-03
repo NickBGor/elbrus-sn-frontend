@@ -34,13 +34,8 @@
         </div>
       </div>
 
-      <div
-        v-if="!isEditable"
-        class="flex flex-col flex-wrap w-full lg:flex-row lg:w-6/12"
-      >
-        <div
-          class="card-default lg:w-2/3 lg:w-2/5 flex flex-col justify-around"
-        >
+      <div v-if="!isEditable" class="flex flex-col flex-wrap w-full lg:flex-row lg:w-6/12">
+        <div class="card-default lg:w-2/3 lg:w-2/5 flex flex-col justify-around">
           <h1 class="text-4xl text-mainColor dark:text-darkModeTextColor">
             {{ getUser.name }}
           </h1>
@@ -73,16 +68,10 @@
           </div>
           <div>
             <span class="text-mainColor dark:text-thirdColor-100">Группа:</span>
-            <h1
-              v-if="getUser.group"
-              class="text-2xl text-mainColor dark:text-darkModeTextColor"
-            >
+            <h1 v-if="getUser.group" class="text-2xl text-mainColor dark:text-darkModeTextColor">
               {{ getUser.group }}
             </h1>
-            <div
-              v-else
-              class="text-sm text-mainColor dark:text-darkModeTextColor"
-            >
+            <div v-else class="text-sm text-mainColor dark:text-darkModeTextColor">
               Попроси своего ментора добавить тебя в твою группу
             </div>
           </div>
@@ -98,13 +87,9 @@
             </h1>
           </div>
           <div>
-            <span class="text-mainColor dark:text-thirdColor-100"
-              >Рейтинг:</span
-            >
+            <span class="text-mainColor dark:text-thirdColor-100">Рейтинг:</span>
             <h1 class="text-4xl text-mainColor dark:text-darkModeTextColor">
-              <span
-                class="material-icons text-mainColor dark:text-darkModeTextColor"
-              >
+              <span class="material-icons text-mainColor dark:text-darkModeTextColor">
                 trending_up
               </span>
               {{ getUser.rating ? getUser.rating : 0 }}
@@ -116,19 +101,11 @@
             Навыки:
           </span>
           <div v-if="getUser.skills && getUser.skills.length" class="my-2">
-            <a-tag
-              v-for="(tag, i) in getUser.skills"
-              :key="i"
-              color="#4520ab"
-              class="text-lg m-1"
-            >
+            <a-tag v-for="(tag, i) in getUser.skills" :key="i" color="#4520ab" class="text-lg m-1">
               {{ tag }}
             </a-tag>
           </div>
-          <div
-            class="text-sm text-mainColor dark:text-darkModeTextColor"
-            v-else
-          >
+          <div v-else class="text-sm text-mainColor dark:text-darkModeTextColor">
             Нажми кнопку редактировать что бы добавить новые навыки
           </div>
         </div>
@@ -151,9 +128,9 @@
             </div>
             <input
               id="name"
+              v-model="name"
               class="input-default w-11/12"
               type="text"
-              v-model="name"
               placeholder="Укажите ваше имя"
               :disabled="isLoading"
             />
@@ -222,7 +199,7 @@
                 name="file"
                 action="https://api.cloudinary.com/v1_1/dwtshakxu/image/upload"
                 :data="{ upload_preset: 'upload-users-avatars' }"
-                list-type="picture"
+                listType="picture"
                 @change="photoUpload"
               >
                 <button class="btn-default flex items-center">
@@ -246,7 +223,7 @@ import IconBase from '@/components/icon-base';
 import PackManLoader from '@/components/icons/pack-mak-loader';
 
 export default {
-  name: 'profile-page',
+  name: 'ProfilePage',
 
   components: { PackManLoader, IconBase },
 
@@ -282,8 +259,7 @@ export default {
         name: this.name,
         userId: this.id,
         skills: this.skills,
-        imgUrl:
-          this.photo === this.getUser.photo ? this.getUser.photo : this.photo,
+        imgUrl: this.photo === this.getUser.photo ? this.getUser.photo : this.photo,
         contacts: this.contacts,
       });
       this.isEditable = false;
@@ -316,14 +292,14 @@ export default {
       if (info.file.status === 'done') {
         this.$notification.success({
           message: 'Успех',
-          description: `Загурзка файла прошла успешно`,
+          description: 'Загурзка файла прошла успешно',
           class: 'bg-bodyColor-lightMode dark:bg-thirdColor',
         });
         this.photo = info.file.response.secure_url;
       } else if (info.file.status === 'error') {
         this.$notification.error({
           message: 'Ошибка',
-          description: `Что то пошло не так при загрузке файла. Попробуйте еще раз.`,
+          description: 'Что то пошло не так при загрузке файла. Попробуйте еще раз.',
           class: 'bg-bodyColor-lightMode dark:bg-thirdColor',
         });
       }
