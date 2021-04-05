@@ -1,14 +1,9 @@
 <template>
-  <login-form-component :is-loading="isLoading">
+  <login-form-component :isLoading="isLoading">
     <template #form>
-      <form
-        :class="{ 'opacity-50': isLoading }"
-        @submit.prevent="recoveryHandler"
-      >
+      <form :class="{ 'opacity-50': isLoading }" @submit.prevent="recoveryHandler">
         <div class="mt-2">
-          <label for="email" class="text-mainColor dark:text-darkModeTextColor"
-            >Email</label
-          >
+          <label for="email" class="text-mainColor dark:text-darkModeTextColor">Email </label>
           <input
             id="email"
             v-model="email"
@@ -18,11 +13,7 @@
           />
         </div>
         <div class="mt-2">
-          <label
-            for="password"
-            class="text-mainColor dark:text-darkModeTextColor"
-            >Пароль</label
-          >
+          <label for="password" class="text-mainColor dark:text-darkModeTextColor">Пароль</label>
           <input
             id="password"
             v-model="password"
@@ -43,10 +34,10 @@
 
 <script>
 import LoginFormComponent from '@/components/UI/login-form-component';
-import { mapGetters } from 'vuex';
+import { mapActions, mapGetters } from 'vuex';
 
 export default {
-  name: 'password-recovery-page',
+  name: 'PasswordRecoveryPage',
 
   components: {
     LoginFormComponent,
@@ -62,12 +53,28 @@ export default {
 
   computed: mapGetters(['getAuth']),
 
+  async beforeCreate() {
+    const isRecovery = localStorage.getItem('recovery');
+    if (!isRecovery) {
+      await this.$router.push({ name: 'profile' });
+    }
+  },
+
+  beforeDestroy() {
+    localStorage.removeItem('recovery', null);
+  },
+
   methods: {
+    ...mapActions(['recoverPassword']),
+
     async recoveryHandler() {
       this.isLoading = true;
-      console.log('555');
+      const result = await this.recoverPassword({
+        email: this.email,
+        password: this.password,
+      });
       this.isLoading = false;
-      this.getAuth ? await this.$router.push({ name: 'news' }) : null;
+      result ? await this.$router.push({ name: 'login' }) : null;
     },
   },
 };

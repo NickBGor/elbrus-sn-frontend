@@ -1,14 +1,9 @@
 <template>
-  <login-form-component :is-loading="isLoading">
+  <login-form-component :isLoading="isLoading">
     <template #form>
-      <form
-        :class="{ 'opacity-50': isLoading }"
-        @submit.prevent="mailSendHandler"
-      >
+      <form :class="{ 'opacity-50': isLoading }" @submit.prevent="mailSendHandler">
         <div class="mt-2">
-          <label for="email" class="text-mainColor dark:text-darkModeTextColor"
-            >Email</label
-          >
+          <label for="email" class="text-mainColor dark:text-darkModeTextColor">Email</label>
           <input
             id="email"
             v-model="email"
@@ -29,10 +24,10 @@
 
 <script>
 import LoginFormComponent from '@/components/UI/login-form-component';
-import { mapGetters } from 'vuex';
+import { mapActions, mapGetters } from 'vuex';
 
 export default {
-  name: 'password-recovery-page',
+  name: 'PasswordRecoveryPage',
 
   components: {
     LoginFormComponent,
@@ -47,17 +42,18 @@ export default {
 
   computed: mapGetters(['getAuth']),
 
+  beforeMount() {
+    localStorage.setItem('recovery', true);
+  },
+
   methods: {
+    ...mapActions(['sendRecoveryMail']),
+
     async mailSendHandler() {
       this.isLoading = true;
       try {
-        const response = await fetch('http://localhost:3000/recovery', {
-          method: 'POST',
-          body: JSON.stringify({ email: this.email }),
-        });
-        const result = await response.json();
-        console.log(result);
-      }catch ( err ){
+        await this.sendRecoveryMail({ email: this.email });
+      } catch (err) {
         console.log(err);
       }
       this.isLoading = false;
