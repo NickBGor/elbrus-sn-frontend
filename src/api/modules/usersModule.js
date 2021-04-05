@@ -10,7 +10,7 @@ export function usersModule(instance) {
       return instance.post('/check', payload);
     },
     getAllUsers() {
-      return instance.get('/students/AllUsers');
+      return instance.get('/students/all');
     },
     editProfile(payload) {
       return instance.post('/profile/edit', payload);
