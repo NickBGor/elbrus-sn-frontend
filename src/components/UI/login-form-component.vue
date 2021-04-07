@@ -21,7 +21,7 @@
       >
         <pack-man-loader />
       </icon-base>
-      <slot name="form" />
+      <slot name="form"></slot>
     </div>
   </div>
 </template>
@@ -32,7 +32,7 @@ import OldLogo from '@/components/icons/old-logo';
 import PackManLoader from '@/components/icons/pack-mak-loader';
 
 export default {
-  name: 'login-form-component',
+  name: 'LoginFormComponent',
 
   components: { PackManLoader, OldLogo, IconBase },
 

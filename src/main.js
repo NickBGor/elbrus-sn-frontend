@@ -18,7 +18,7 @@ import App from './App.vue';
 import './assets/styles.css';
 
 Vue.config.productionTip = false;
-Vue.use(VueLodash, { name: 'custom', lodash: lodash });
+Vue.use(VueLodash, { name: 'custom', lodash });
 Vue.use(tag);
 Vue.use(icon);
 Vue.use(upload);

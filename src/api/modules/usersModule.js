@@ -15,5 +15,11 @@ export function usersModule(instance) {
     editProfile(payload) {
       return instance.post('/profile/edit', payload);
     },
+    sendRecoveryMail(payload) {
+      return instance.post('/profile/recovery', payload);
+    },
+    recoverPassword(payload) {
+      return instance.patch('/profile/recovery', payload);
+    },
   };
 }

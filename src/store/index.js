@@ -166,6 +166,30 @@ export default new Vuex.Store({
         commit('setErrors', error.response.data.errors);
       }
     },
+
+    async sendRecoveryMail({ commit }, payload) {
+      commit('setErrors', null);
+      commit('setSuccessMessage', null);
+      try {
+        const { data } = await api.user.sendRecoveryMail(payload);
+        commit('setSuccessMessage', data.success);
+      } catch (error) {
+        commit('setErrors', error.response.data.success);
+      }
+    },
+
+    async recoverPassword({ commit }, payload) {
+      commit('setErrors', null);
+      commit('setSuccessMessage', null);
+      try {
+        const { data } = await api.user.recoverPassword(payload);
+        commit('setSuccessMessage', data.success);
+        return true;
+      } catch (error) {
+        commit('setErrors', error.response.data.success);
+        return false;
+      }
+    },
   },
 
   getters: {
@@ -184,10 +208,12 @@ export default new Vuex.Store({
 
     getErrors(state) {
       if (state.errors) return state.errors;
+      return null;
     },
 
     getSuccessMessage(state) {
       if (state.successMessage) return state.successMessage;
+      return null;
     },
 
     getEmailStatus(state) {

@@ -12,6 +12,8 @@ import OrderListPage from '@/pages/order-list-page';
 import NewsPage from '@/pages/news-page';
 import NotFoundPage from '@/pages/not-found-page';
 import EmployerPage from '@/pages/employer-page';
+import PasswordRecovery from '@/pages/password-recovery-page';
+import SendMail from '@/pages/send-mail-page';
 import ConfirmPage from '@/pages/confirmation-mail-page';
 import InDevelopingPage from '@/pages/in-developing-page';
 
@@ -89,6 +91,18 @@ const routes = [
     name: 'login',
     meta: { auth: false },
     component: LoginPage,
+  },
+  {
+    path: '/recovery-mail',
+    name: 'recovery-mail',
+    meta: { auth: false },
+    component: SendMail,
+  },
+  {
+    path: '/recovery',
+    name: 'recovery',
+    meta: { auth: false },
+    component: PasswordRecovery,
   },
   {
     path: '/confirmation',

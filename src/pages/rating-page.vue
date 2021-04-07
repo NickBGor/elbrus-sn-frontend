@@ -4,6 +4,6 @@
 
 <script>
 export default {
-  name: 'ratings-page',
+  name: 'RatingsPage',
 };
 </script>
