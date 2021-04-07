@@ -30,9 +30,9 @@
           </button>
         </div>
         <router-link :to="{ name: 'recovery-mail' }">
-          <span title="восстановление пароля">
-            <Mail />
-          </span>
+          <div class="mt-2 text-mainColor-100 dark:text-darkModeTextColor-100">
+            Восстановление пароля
+          </div>
         </router-link>
       </form>
     </template>
@@ -42,12 +42,11 @@
 <script>
 import { mapActions, mapGetters } from 'vuex';
 import LoginFormComponent from '@/components/UI/login-form-component';
-import Mail from '@/components/icons/mail';
 
 export default {
   name: 'LoginPage',
 
-  components: { LoginFormComponent, Mail },
+  components: { LoginFormComponent },
 
   data() {
     return {

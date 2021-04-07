@@ -13,7 +13,7 @@
           />
         </div>
         <div class="mt-4">
-          <button class="btn-default">
+          <button class="btn-default" :disabled="isLoading">
             Отправить письмо восстановления пароля
           </button>
         </div>
