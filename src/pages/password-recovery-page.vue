@@ -1,16 +1,15 @@
 <template>
   <login-form-component :isLoading="isLoading">
     <template #form>
-      <form :class="{ 'opacity-50': isLoading }" @submit.prevent="loginHandler">
-        <div>
-          <label for="email" class="text-mainColor dark:text-darkModeTextColor">Email</label>
+      <form :class="{ 'opacity-50': isLoading }" @submit.prevent="recoveryHandler">
+        <div class="mt-2">
+          <label for="email" class="text-mainColor dark:text-darkModeTextColor">Email </label>
           <input
             id="email"
             v-model="email"
             type="email"
             placeholder="Ваш email"
             class="input-default"
-            :disabled="isLoading"
           />
         </div>
         <div class="mt-2">
@@ -21,52 +20,64 @@
             type="password"
             placeholder="Ваш пароль"
             class="input-default"
-            :disabled="isLoading"
           />
         </div>
         <div class="mt-4">
-          <button class="btn-default" :disabled="isLoading">
-            Войти
+          <button class="btn-default">
+            Обновить пароль
           </button>
         </div>
-        <router-link :to="{ name: 'recovery-mail' }">
-          <div class="mt-2 text-mainColor-100 dark:text-darkModeTextColor-100">
-            Восстановление пароля
-          </div>
-        </router-link>
       </form>
     </template>
   </login-form-component>
 </template>
 
 <script>
-import { mapActions, mapGetters } from 'vuex';
 import LoginFormComponent from '@/components/UI/login-form-component';
+import { mapActions, mapGetters } from 'vuex';
 
 export default {
-  name: 'LoginPage',
+  name: 'PasswordRecoveryPage',
 
-  components: { LoginFormComponent },
+  components: {
+    LoginFormComponent,
+  },
 
   data() {
     return {
-      email: '',
-      password: '',
+      email: null,
+      password: null,
       isLoading: false,
     };
   },
 
   computed: mapGetters(['getAuth']),
 
-  methods: {
-    ...mapActions(['login']),
+  async beforeCreate() {
+    const isRecovery = localStorage.getItem('recovery');
+    if (!isRecovery) {
+      await this.$router.push({ name: 'profile' });
+    }
+  },
 
-    async loginHandler() {
+  beforeDestroy() {
+    localStorage.removeItem('recovery', null);
+  },
+
+  methods: {
+    ...mapActions(['recoverPassword']),
+
+    async recoveryHandler() {
       this.isLoading = true;
-      await this.login({ email: this.email, password: this.password });
+      const result = await this.recoverPassword({
+        email: this.email,
+        password: this.password,
+      });
       this.isLoading = false;
-      this.getAuth ? await this.$router.push({ name: 'main' }) : null;
+      result ? await this.$router.push({ name: 'login' }) : null;
     },
   },
 };
 </script>
+
+<style></style>
