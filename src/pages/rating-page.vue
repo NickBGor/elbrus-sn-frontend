@@ -105,7 +105,21 @@ export default {
     },
   },
 
+  beforeRouteLeave(to, from, next) {
+    console.log(to, from, next);
+    if (to.name === 'user-page') {
+      localStorage.setItem('currentPage', this.currentPage);
+    } else {
+      localStorage.removeItem('currentPage');
+    }
+    next();
+  },
+
   async created() {
+    const page = localStorage.getItem('currentPage');
+    if (page) {
+      this.currentPage = page;
+    }
     if (this.getUsers) {
       this.users = this.sortUsers('rating');
       return;
