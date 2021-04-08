@@ -35,6 +35,7 @@
 
 <script>
 import { mapGetters } from 'vuex';
+
 import IconBase from '@/components/icon-base';
 import MainLogo from '@/components/icons/main-logo';
 

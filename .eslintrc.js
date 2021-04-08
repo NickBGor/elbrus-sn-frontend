@@ -39,6 +39,14 @@ module.exports = {
     'import/no-unresolved': 0,
     'import/extensions': 0,
     'import/prefer-default-export': 0,
+    'import/newline-after-import': ['error', { count: 1 }],
+    'import/order': [
+      'error',
+      {
+        'newlines-between': 'always',
+        groups: ['builtin', 'external', 'internal', 'unknown', 'parent', 'sibling', 'index'],
+      },
+    ],
     'no-unused-expressions': 0,
     'no-underscore-dangle': 0,
     'global-require': 0,

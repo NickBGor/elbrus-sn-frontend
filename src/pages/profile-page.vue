@@ -111,7 +111,7 @@
         </div>
       </div>
 
-      <div v-else class="m-5 relative">
+      <div v-else class="w-4/12 m-5 relative">
         <icon-base
           v-if="isLoading"
           width="300px"
@@ -219,8 +219,9 @@
 
 <script>
 import { mapActions, mapGetters } from 'vuex';
+
 import IconBase from '@/components/icon-base';
-import PackManLoader from '@/components/icons/pack-mak-loader';
+import PackManLoader from '@/components/icons/pack-man-loader';
 
 export default {
   name: 'ProfilePage',

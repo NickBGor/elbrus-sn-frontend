@@ -29,7 +29,7 @@
 <script>
 import IconBase from '@/components/icon-base';
 import OldLogo from '@/components/icons/old-logo';
-import PackManLoader from '@/components/icons/pack-mak-loader';
+import PackManLoader from '@/components/icons/pack-man-loader';
 
 export default {
   name: 'LoginFormComponent',

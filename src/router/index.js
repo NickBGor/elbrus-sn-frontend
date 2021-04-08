@@ -1,5 +1,6 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
+
 import store from '@/store';
 import ProfilePage from '@/pages/profile-page';
 import LoginPage from '@/pages/login-page';
@@ -16,6 +17,7 @@ import PasswordRecovery from '@/pages/password-recovery-page';
 import SendMail from '@/pages/send-mail-page';
 import ConfirmPage from '@/pages/confirmation-mail-page';
 import InDevelopingPage from '@/pages/in-developing-page';
+import UserPage from '@/pages/user-page';
 
 Vue.use(VueRouter);
 
@@ -55,9 +57,16 @@ const routes = [
   {
     path: '/ratings',
     name: 'ratings',
-    redirect: 'dev',
+    // redirect: 'dev',
     meta: { auth: true, isConfirmed: true },
     component: RatingPage,
+  },
+  {
+    path: '/user/:id',
+    name: 'user-page',
+    // redirect: 'dev',
+    meta: { auth: true, isConfirmed: true },
+    component: UserPage,
   },
   {
     path: '/shop',
