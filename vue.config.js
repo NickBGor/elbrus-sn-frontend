@@ -1,9 +1,17 @@
 module.exports = {
   // css: {
   //   loaderOptions: {
-  //     sass: {
-  //       prependData: '@import "@/assets/styles/_variables.scss";',
+  //     less: {
+  //       lessOptions: {
+  //         modifyVars: {
+  //           'primary-color': '#4520ab',
+  //         },
+  //         javascriptEnabled: true,
+  //       },
   //     },
+  //   sass: {
+  //     prependData: '@import "@/assets/styles/_variables.scss";',
   //   },
+  // },
   // },
 };

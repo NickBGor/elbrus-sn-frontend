@@ -10,6 +10,7 @@
 
 <script>
 import { mapGetters } from 'vuex';
+
 import ContentComponent from '@/components/content-component';
 import BurgerMenuComponent from '@/components/UI/burger-menu-component';
 import NavigationComponent from '@/components/UI/navigation-component';

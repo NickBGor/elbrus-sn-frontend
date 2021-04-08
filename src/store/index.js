@@ -1,5 +1,6 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
+
 import api from '@/api';
 
 Vue.use(Vuex);
@@ -66,6 +67,7 @@ export default new Vuex.Store({
       },
     ],
     user: {},
+    allUsers: null,
     errors: null,
     successMessage: null,
     employers: [],
@@ -74,6 +76,10 @@ export default new Vuex.Store({
   mutations: {
     setUser(state, user) {
       state.user = user;
+    },
+
+    setAllUsers(state, allUsers) {
+      state.allUsers = allUsers;
     },
 
     changeAuth(state, auth) {
@@ -157,6 +163,16 @@ export default new Vuex.Store({
       }
     },
 
+    async getAllUsers({ commit }) {
+      commit('setErrors', null);
+      try {
+        const { data } = await api.user.getAllUsers();
+        commit('setAllUsers', data.users);
+      } catch (error) {
+        commit('setErrors', error.response.data.errors);
+      }
+    },
+
     async getAllEmployers({ commit }) {
       commit('setErrors', null);
       try {
@@ -201,6 +217,10 @@ export default new Vuex.Store({
 
     getUser(state) {
       return state.user;
+    },
+
+    getUsers(state) {
+      return state.allUsers;
     },
 
     getMenuItems(state) {
