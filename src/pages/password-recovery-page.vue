@@ -22,6 +22,18 @@
             class="input-default"
           />
         </div>
+        <div class="mt-2">
+          <label for="repeatPassword" class="text-mainColor dark:text-darkModeTextColor">
+            Введите пароль еще раз
+          </label>
+          <input
+            id="repeatPassword"
+            v-model="repeatPassword"
+            type="password"
+            placeholder="Введите пароль еще раз"
+            class="input-default"
+          />
+        </div>
         <div class="mt-4">
           <button class="btn-default">
             Обновить пароль
@@ -33,8 +45,9 @@
 </template>
 
 <script>
+import { mapActions, mapMutations } from 'vuex';
+
 import LoginFormComponent from '@/components/UI/login-form-component';
-import { mapActions, mapGetters } from 'vuex';
 
 export default {
   name: 'PasswordRecoveryPage',
@@ -47,13 +60,12 @@ export default {
     return {
       email: null,
       password: null,
+      repeatPassword: null,
       isLoading: false,
     };
   },
 
-  computed: mapGetters(['getAuth']),
-
-  async beforeCreate() {
+  async created() {
     const isRecovery = localStorage.getItem('recovery');
     if (!isRecovery) {
       await this.$router.push({ name: 'profile' });
@@ -66,15 +78,20 @@ export default {
 
   methods: {
     ...mapActions(['recoverPassword']),
+    ...mapMutations(['setErrors']),
 
     async recoveryHandler() {
+      this.setErrors(null);
+      if (this.password !== this.repeatPassword) {
+        return this.setErrors([{ msg: 'Пароли не совпадают' }]);
+      }
       this.isLoading = true;
       const result = await this.recoverPassword({
         email: this.email,
         password: this.password,
       });
       this.isLoading = false;
-      result ? await this.$router.push({ name: 'login' }) : null;
+      result ? await this.$router.push({ name: 'main' }) : null;
     },
   },
 };

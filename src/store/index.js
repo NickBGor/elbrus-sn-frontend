@@ -174,7 +174,7 @@ export default new Vuex.Store({
         const { data } = await api.user.sendRecoveryMail(payload);
         commit('setSuccessMessage', data.success);
       } catch (error) {
-        commit('setErrors', error.response.data.success);
+        commit('setErrors', error.response.data.errors);
       }
     },
 
@@ -183,10 +183,12 @@ export default new Vuex.Store({
       commit('setSuccessMessage', null);
       try {
         const { data } = await api.user.recoverPassword(payload);
+        commit('setUser', data.user);
+        commit('changeAuth', true);
         commit('setSuccessMessage', data.success);
         return true;
       } catch (error) {
-        commit('setErrors', error.response.data.success);
+        commit('setErrors', error.response.data.errors);
         return false;
       }
     },
