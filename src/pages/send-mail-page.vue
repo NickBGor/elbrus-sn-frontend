@@ -23,8 +23,9 @@
 </template>
 
 <script>
-import LoginFormComponent from '@/components/UI/login-form-component';
 import { mapActions, mapGetters } from 'vuex';
+
+import LoginFormComponent from '@/components/UI/login-form-component';
 
 export default {
   name: 'PasswordRecoveryPage',
