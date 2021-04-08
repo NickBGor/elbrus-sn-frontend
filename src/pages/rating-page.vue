@@ -108,7 +108,6 @@ export default {
   },
 
   beforeRouteLeave(to, from, next) {
-    console.log(to, from, next);
     if (to.name === 'user-page') {
       localStorage.setItem('currentPage', this.currentPage);
     } else {
