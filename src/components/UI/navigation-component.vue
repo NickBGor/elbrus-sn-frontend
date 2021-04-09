@@ -1,7 +1,7 @@
 <template>
   <aside class="w-56 bg-sideBar-lightMode flex-col dark:bg-sideBar-darkMode">
     <div class="mb-20 mt-2 mx-4 flex items-center">
-      <router-link :to="{ name: 'news' }">
+      <router-link :to="{ name: 'main' }">
         <icon-base width="137" height="48" viewBox="0 0 137 48" fill="none">
           <main-logo />
         </icon-base>

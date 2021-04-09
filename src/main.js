@@ -1,6 +1,7 @@
 import Vue from 'vue';
 import VueLodash from 'vue-lodash';
 import lodash from 'lodash';
+import VueScrollTo from 'vue-scrollto';
 import notification from 'ant-design-vue/lib/notification';
 import 'ant-design-vue/lib/notification/style/index.css';
 import tag from 'ant-design-vue/lib/tag';
@@ -25,6 +26,8 @@ Vue.use(icon);
 Vue.use(upload);
 Vue.use(progress);
 Vue.prototype.$notification = notification;
+
+Vue.use(VueScrollTo);
 
 store.dispatch('checkAuth').then(() => {
   new Vue({
