@@ -111,7 +111,7 @@
         </div>
       </div>
 
-      <div v-else class="w-4/12 m-5 relative">
+      <div v-else class="m-auto w-4/5 lg:w-4/12 lg:m-5 relative">
         <icon-base
           v-if="isLoading"
           width="300px"
