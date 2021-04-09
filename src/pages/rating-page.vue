@@ -50,7 +50,7 @@
         <button
           v-show="users.length > pageSize && sliceUsers.length !== users.length"
           v-scroll-to="{ element: '#lastItem', duration: 2000 }"
-          class="w-1/3 mx-auto btn-default"
+          class="w-3/5 lg:w-1/3 mx-auto btn-default"
           @click="currentPage++"
         >
           Показать еще

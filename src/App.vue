@@ -1,8 +1,8 @@
 <template>
   <div
-    class="font-fira flex min-h-screen min-w-screen bg-bodyColor-lightMode dark:bg-bodyColor-darkMode dark:text-darkModeTextColor"
+    class="relative font-fira flex min-h-screen min-w-screen bg-bodyColor-lightMode dark:bg-bodyColor-darkMode dark:text-darkModeTextColor"
   >
-    <burger-menu-component class="lg:hidden absolute z-50 top-5 right-4" />
+    <burger-menu-component class="lg:hidden fixed z-50 top-5 right-4" />
     <navigation-component class="hidden lg:flex fixed h-full" />
     <content-component class="ml-0 lg:ml-56" />
   </div>
