@@ -10,6 +10,7 @@
       <div class="w-full order-2 lg:order-1 flex flex-col">
         <div
           v-for="(user, index) in sliceUsers"
+          :id="index === sliceUsers.length - 1 && 'lastItem'"
           :key="user._id"
           class="flex items-center mb-4 pb-2 border-b border-gray-200 dark:border-gray-500"
         >
@@ -48,7 +49,8 @@
         </div>
         <button
           v-show="users.length > pageSize && sliceUsers.length !== users.length"
-          class="w-3/5 lg:w-1/3 mx-auto btn-default"
+          v-scroll-to="{ element: '#lastItem', duration: 2000 }"
+          class="w-1/3 mx-auto btn-default"
           @click="currentPage++"
         >
           Показать еще
@@ -105,7 +107,20 @@ export default {
     },
   },
 
+  beforeRouteLeave(to, from, next) {
+    if (to.name === 'user-page') {
+      localStorage.setItem('currentPage', this.currentPage);
+    } else {
+      localStorage.removeItem('currentPage');
+    }
+    next();
+  },
+
   async created() {
+    const page = localStorage.getItem('currentPage');
+    if (page) {
+      this.currentPage = page;
+    }
     if (this.getUsers) {
       this.users = this.sortUsers('rating');
       return;
