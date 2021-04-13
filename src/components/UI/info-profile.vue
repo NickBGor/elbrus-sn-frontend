@@ -18,7 +18,7 @@
           </div>
         </div>
         <div v-else class="text-mainColor dark:text-darkModeTextColor">
-          Нажми кнопку редактировать что бы добавить свои контакты
+          Тут должны быть контакты
         </div>
       </div>
     </div>
@@ -37,7 +37,7 @@
           {{ user.group }}
         </h1>
         <div v-else class="text-sm text-mainColor dark:text-darkModeTextColor">
-          Попроси своего ментора добавить тебя в твою группу
+          Тут должна быть группа
         </div>
       </div>
     </div>
@@ -71,7 +71,7 @@
         </a-tag>
       </div>
       <div v-else class="text-sm text-mainColor dark:text-darkModeTextColor">
-        Нажми кнопку редактировать что бы добавить новые навыки
+        Тут должны быть навыки
       </div>
     </div>
   </div>
