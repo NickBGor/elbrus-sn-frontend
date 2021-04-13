@@ -33,5 +33,5 @@ module.exports = {
       scale: ['group-hover', 'hover'],
     },
   },
-  plugins: [require('@tailwindcss/forms')],
+  plugins: [require('@tailwindcss/forms'), require('@tailwindcss/aspect-ratio')],
 };
